@@ -1,10 +1,12 @@
 <div>
-    <img [src]="product.image" alt="">
-</div>
-<div>
-    <ul>
-        <li>Nombre: {{ product.title }}</li>
-        <li>Precio: {{ product.price | currency }}</li>
-    </ul>
-    <p>{{ product.description }}</p>
+    <div>
+        <img [src]="(product | async)?.image" alt="">
+    </div>
+    <div>
+        <ul>
+            <li>Nombre: {{ (product | async)?.title }}</li>
+            <li>Precio: {{ (product | async)?.price | currency }}</li>
+        </ul>
+        <p>{{ (product | async)?.description }}</p>
+    </div>
 </div>
